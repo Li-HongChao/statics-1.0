@@ -3,23 +3,20 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
-const IndexView = () => import('@/pagers/IndexView')
+ const ChatView = () => import('@/pagers/ChatView')
 const MainView = () => import('@/pagers/MainView')
 
 const routes = [
   {
     path: '/',
-    name: 'IndexView',
-    component: IndexView,
-    redirec:'/main',
-    children:[
-      {
-        path:'/main',
-        name:'main',
-        component: MainView
-      }
-    ]
-  }
+    name: 'main',
+    component: MainView
+  },
+  {
+    path: '/chat',
+    name: 'chat',
+    component: ChatView
+  },
 ]
 
 const router = new VueRouter({

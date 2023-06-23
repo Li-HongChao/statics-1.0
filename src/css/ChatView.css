@@ -1,0 +1,83 @@
+.main-chat {
+    width: 1152px;
+    height: 660px;
+    margin: 50px auto;
+    border-radius: 40px;
+    box-shadow: 18px 18px 30px rgba(0, 0, 0, 0.1),
+    -18px -18px 30px rgba(255, 255, 255, 1);
+    transition: all .2s ease-out;
+    background: url(../assets/pkq.png) no-repeat #efeeee;;
+    background-size: 25%;
+    background-position: 100% 100%;
+    overflow: hidden;
+}
+
+
+/*聊天记录区*/
+.chat-contents {
+    margin: 20px auto;
+    height: 70%;
+    width: 80%;
+    padding: 0;
+    text-align: center;
+}
+
+.chat-content{
+
+}
+
+
+/*发送区*/
+.textarea {
+    margin: 0 auto;
+    width: 60%;
+    height: 40px;
+    background: #f5f5f5;
+    border-radius: 20px;
+    box-shadow: 18px 18px 30px rgba(0, 0, 0, 0.1),
+    -18px -18px 30px rgba(255, 255, 255, 1);
+    position: relative;
+}
+
+/*文本框*/
+.textarea textarea {
+    padding: 13px;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    resize: none;
+}
+
+/*按钮*/
+.textarea div {
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    top: 2px;
+    right: 15px;
+    background: url("../assets/send.png") no-repeat;
+    background-size: 100%;
+}
+
+.textarea div:hover {
+    cursor: pointer;
+}
+
+
+/*屏幕如果太小*/
+@media only screen and (max-width: 800px) {
+    .main-chat {
+        width: 80%;
+        height: 660px;
+        margin: 50px auto;
+        border-radius: 40px;
+        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1),
+        -10px -10px 20px rgba(255, 255, 255, 1);
+        transition: all .2s ease-out;
+        background: url(../assets/pkq.png) no-repeat #efeeee;;
+        background-size: 25%;
+        background-position: 100% 100%;
+    }
+}
