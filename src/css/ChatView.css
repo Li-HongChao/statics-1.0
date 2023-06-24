@@ -10,20 +10,63 @@
     background-size: 25%;
     background-position: 100% 100%;
     overflow: hidden;
+    position: relative;
 }
 
 
 /*聊天记录区*/
 .chat-contents {
-    margin: 20px auto;
-    height: 70%;
+    margin: 40px auto;
+    height: 60%;
+    overflow: auto;
     width: 80%;
     padding: 0;
     text-align: center;
 }
 
-.chat-content{
+.chat-content {
+    text-align: start;
+    margin: 20px auto;
+    width: 90%;
+    border-radius: 10px;
+    background: #f5f5f5;
+    box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.1),
+    -6px -6px 10px rgba(255, 255, 255, 1);
+}
 
+.chat-title {
+    padding: 20px 0 0 20px;
+}
+
+.sender {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.receiver {
+    font-weight: 500;
+    font-size: 8px;
+}
+
+.chat-time {
+    color: #767676;
+    font-size: 8px;
+}
+
+.chat-text {
+    padding: 20px;
+}
+
+.son-chat-content {
+    background: white;
+    padding-top: 20px;
+    padding-left: 40px;
+    border-radius: 10px;
+}
+
+.son-title {
+    font-size: 20px;
+    font-weight: 600;
 }
 
 
@@ -65,6 +108,32 @@
     cursor: pointer;
 }
 
+.back {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}
+
+.back:hover{
+    cursor: pointer;
+}
+
+.backicon {
+    width: 25px;
+    height: 25px;
+    background: url("../assets/back.png") no-repeat;
+    background-size: 100%;
+}
+
+.backtext {
+    width: 100px;
+    font-size: 12px;
+    font-weight: 600;
+    position: absolute;
+    bottom: 2px;
+    left: 30px;
+}
+
 
 /*屏幕如果太小*/
 @media only screen and (max-width: 800px) {
@@ -79,5 +148,13 @@
         background: url(../assets/pkq.png) no-repeat #efeeee;;
         background-size: 25%;
         background-position: 100% 100%;
+    }
+
+    .son-chat-content {
+        background: white;
+        padding-top: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        border-radius: 10px;
     }
 }

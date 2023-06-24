@@ -9,16 +9,40 @@
     </div>
 
     <!-- 按键 -->
-    <div class="menu">
-      <div class="item"><a href="https://github.com/Li-HongChao/" target="_blank">gitHub</a></div>
-      <div class="item"><a href="https://pan.baidu.com/s/1_MAvcSd_8866M0LXklO6MQ?pwd=zzqn" target="_blank">学习资料</a>
+    <div v-if="show===1">
+      <div class="menu">
+        <div class="item"><a href="https://github.com/Li-HongChao/" target="_blank">gitHub</a></div>
+        <div class="item"><a href="https://pan.baidu.com/s/1_MAvcSd_8866M0LXklO6MQ?pwd=zzqn"
+                             target="_blank">学习资料</a>
+        </div>
+        <div class="item">
+          <router-link to="chat">聊天讨论</router-link>
+        </div>
+        <div class="item" @click="shows(2)">联系方式</div>
+        <div class="item" @click="shows(3)">关于我</div>
       </div>
-        <div class="item"><router-link to="chat">聊天讨论</router-link></div>
-      <div class="item">联系方式</div>
-      <div class="item">关于我</div>
+      <div class="line"></div>
     </div>
-    <div class="line"></div>
 
+    <!--联系方式-->
+    <transition name="plus-icon">
+    <div v-if="show===2" class="aboutbox">
+      QQ邮箱:&emsp;207169819@qq.com
+    </div>
+    </transition>
+
+    <transition name="plus-icon">
+      <div v-if="show===3" class="aboutbox">
+        关于我?于我无瓜😛😛😛😛😛😛
+      </div>
+    </transition>
+
+    <div v-if="show===2||show===3" class="back-main" @click="shows(1)">
+      <div class="backicon-main"></div>
+      <div class="backtext-mian">返回</div>
+    </div>
+
+    <!--关于我-->
     <!-- 名言 -->
     <div class="text">
       {{ text.hitokoto }}
@@ -41,7 +65,7 @@ export default {
       date: {
         time: null,
         date: null,
-        weather: "🌤晴转多云",
+        temp:''
       },
       text: {
         hitokoto: '',
@@ -49,6 +73,7 @@ export default {
         from_who: '',
         content: ''
       },
+      show: 1
     }
   },
   methods: {
@@ -74,10 +99,10 @@ export default {
       }
       //拼接格式化当前时间
       this.date.time = hours + ":" + minutes + ":" + seconds
-      this.date.date = year + " 年 " + month + " 月 " + day + " 日  |🌤晴转多云"
+      this.date.date = year + " 年 " + month + " 月 " + day + " 日";
     },
     getText() {
-      axios.get("v1.hitokoto.cn/?c=k&c=d").then(e => {
+      axios.get("https://v1.hitokoto.cn/?c=k&c=d").then(e => {
         this.text = e.data
         if (this.text.from == null) {
           this.text.from = ""
@@ -88,6 +113,9 @@ export default {
         console.log("每日一言" + this.text.hitokoto);
       })
     },
+    shows(data){
+      this.show=data
+    }
   },
   created() {
     this.getTimes();
